@@ -61,3 +61,33 @@
         }
     }
 }
+
+@media (max-width: 600px) {
+        
+    .country-input {
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+
+            .date-input {
+                width: 100%;
+                margin: 10px 0px;
+                align-self: center;
+
+            }
+            .search-country-bar {
+                width: 100%;
+                margin: 10px 0px;
+                align-self: center;
+            }
+        }
+
+        .show-button {
+            margin-top: 20px;
+            width: 90%;
+            padding: 0 0;
+        }
+    }
+}
+

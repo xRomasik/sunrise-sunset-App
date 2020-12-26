@@ -9,7 +9,14 @@ const CountryInput = ({ setDateToSearch, setCountryToSearch, fetchCoordinatesFor
         <div className='country-input'>
             <div className='input-container'>
                 <input className='date-input' type='date' max='9999-12-24' onChange={setDateToSearch} />
-                <input className='search-country-bar' type='text' placeholder='Enter country' onChange={setCountryToSearch} />
+                <input className='search-country-bar' type='text' placeholder='Enter country'
+                    onChange={setCountryToSearch}
+                    onKeyPress={event => {
+                        if (event.key === 'Enter') {
+                            fetchCoordinatesForCountry()
+                        }
+                    }}
+                />
             </div>
             <button className='show-button' onClick={fetchCoordinatesForCountry}>
                 <img className='show-button-image' alt='sun' src={sun} width="50" height="auto" />

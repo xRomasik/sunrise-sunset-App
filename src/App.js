@@ -2,11 +2,10 @@ import './App.scss';
 
 import HomePage from './pages/homepage/homepage.component';
 
-
 const App = () => {
 
   return (
-    <div>
+    <div className='app'>
       <HomePage />
     </div>
 

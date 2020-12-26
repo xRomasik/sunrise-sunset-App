@@ -3,25 +3,23 @@ import { useState, useEffect } from 'react';
 import CountryInput from '../../components/country-input/country-input.component';
 import SunriseSunset from '../../components/sunrise-sunset/sunrise-sunset.component';
 
+import './homepage.styles.scss'
+
 const HomePage = () => {
 
 
     const [country, setCountry] = useState('')
+    const [errorMessage, setErrorMessage] = useState(null)
     const [date, setDate] = useState('')
-    const [coordinates, setCoordinates] = useState({
-        latitude: '',
-        longitude: '',
-        timeOffset: ''
-    })
+    const [coordinates, setCoordinates] = useState(null)
     const [sunInfo, setSunInfo] = useState({
         sunrise: '',
         sunset: ''
     })
 
     useEffect(() => {
-        if (coordinates.data) {
+        if (coordinates) {
             fetchSunriseAndSunsetData()
-
         }
         console.log('sfsf')
     }, [coordinates])
@@ -58,16 +56,22 @@ const HomePage = () => {
 
 
     const fetchCoordinatesForCountry = () => {
-        fetch(`https://api.opencagedata.com/geocode/v1/json?q=${country.toLowerCase()}&key=a6d738363a19437e9730bea42200f43f`)
-            .then(response => response.json())
-            .then(data => {
-                console.log(data)
-                setCoordinates({
-                    latitude: data.results[0].geometry.lat,
-                    longitude: data.results[0].geometry.lng,
-                    timeOffset: parseInt(data.results[0].annotations.timezone.offset_sec) / 3600
-                });
-            })
+        if (country.length > 2 && country.match(/^[^0-9]*$/)) {
+            fetch(`https://api.opencagedata.com/geocode/v1/json?q=${country.toLowerCase()}&key=a6d738363a19437e9730bea42200f43f`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    setCoordinates({
+                        latitude: data.results[0].geometry.lat,
+                        longitude: data.results[0].geometry.lng,
+                        timeOffset: parseInt(data.results[0].annotations.timezone.offset_sec) / 3600
+                    });
+                }).catch(() => setErrorMessage('Something went wrong, please check the name of the country and try again.'))
+        } else if (!country.match(/^[^0-9]*$/)) {
+            setErrorMessage('It seems like there is a number in your country name.')
+        } else {
+            setErrorMessage('Country name must be at least 3 letters long.')
+        }
     }
 
     const fetchSunriseAndSunsetData = () => {
@@ -81,17 +85,20 @@ const HomePage = () => {
                     sunrise: timeConvertTo24hLocalTimeZoneFormat(data.results.sunrise, coordinates.timeOffset),
                     sunset: timeConvertTo24hLocalTimeZoneFormat(data.results.sunset, coordinates.timeOffset)
                 });
-            })
+                setErrorMessage(null)
+            }).catch(() => setErrorMessage('Something went wrong, please check the name of the country and try again.'))
 
     }
 
     return (
-        <div>
+        <div className='homepage'>
             <CountryInput setDateToSearch={setDateToSearch} setCountryToSearch={setCountryToSearch} fetchCoordinatesForCountry={fetchCoordinatesForCountry} />
             {
-                sunInfo.sunset && sunInfo.sunrise ?
+                !errorMessage && sunInfo.sunset ?
                     <SunriseSunset sunriseTime={sunInfo.sunrise} sunsetTime={sunInfo.sunset} />
-                    : null
+                    : <div className='error-message'>
+                        {errorMessage}
+                    </div>
             }
         </div>
     )

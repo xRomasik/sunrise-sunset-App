@@ -1,0 +1,97 @@
+.sunrise-sunset-container {
+    margin-top: 4vh;
+    padding-top: 4vh;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px solid white;
+
+    .sunrise-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        margin: 10px 0px;
+        color: white;
+
+        .sun-image {
+            width: 120px;
+            height: auto;
+        }
+
+        .sunrise-time-information {
+            margin-left: 20px;
+        }
+
+    }
+
+    .sunset-container {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        margin: 3vh 0px;
+        color: white;
+
+        .moon-image {
+            width: 120px;
+            height: auto;
+        }
+
+        .sunset-time-information {
+            margin-left: 20px;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+        
+    .sunrise-sunset-container {
+        width: 90%;
+
+        .sunrise-container {
+            font-size: 25px;
+            width: 100%;
+
+            .sun-image {
+                width: 80px;
+            }
+        }
+
+        .sunset-container {
+            font-size: 25px;
+
+            .moon-image {
+                width: 80px;
+            }
+        }   
+    }
+}
+
+
+@media (max-width: 413px) {
+
+    .sunrise-sunset-container {
+        .sunrise-container {
+            font-size: 19px;
+
+            .sun-image {
+                width: 60px;
+            }
+
+        }
+        .sunset-container {
+            font-size: 19px;
+
+            .moon-image {
+                width: 60px;
+            }
+
+        }   
+    }
+}
