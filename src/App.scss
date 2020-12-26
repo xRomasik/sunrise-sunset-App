@@ -1,0 +1,185 @@
+.app {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background:  url(./assets/backgroundImage.png) no-repeat center fixed ;
+    background-size: cover;
+
+    .input-container {
+        display: flex;
+        flex-direction: row;
+
+        .date-input {
+            width: 150px;
+            height: 30px;
+            border: 2px solid black;
+            font-family: 'lucida console';
+            text-indent: 3px;
+            margin: 10px 30px;
+            padding: 1px 2px;
+            font-size: 14px;
+        }
+        .search-country-bar {
+            width: 250px;
+            height: 30px;
+            margin: 10px;
+            border: 2px solid black;
+            font-family: 'lucida console';
+            text-indent: 10px;
+            font-size: 14px;
+        }
+    }
+
+    .show-button {
+        margin-top: 30px;
+        width: 150px;
+        height: 50px;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        font-family: 'lucida console';
+        background-color: rgba(0, 0, 0, 0.7);
+        border: 2px solid rgb(255, 255, 255);
+
+        .show-button-image {
+            margin: 5px 15px 5px 0px;
+        }
+
+        .show-button-text {
+            font-weight: bold;
+            color: white;
+            font-family: 'lucida console';
+            font-size: 14px;
+            margin-right: 15px;
+        }
+
+        &:hover{
+            background-color: rgba(0, 0, 0);
+        }
+    }
+
+    .sunrise-sunset-container {
+        margin-top: 4vh;
+        padding-top: 4vh;
+        width: 80%;
+        display: flex;
+        flex-direction: column;
+        border-top: 2px solid white;
+
+        .sunrise-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            margin: 10px 0px;
+            color: white;
+            font-family: 'lucida console';
+
+            .sun-image {
+                width: 120px;
+                height: auto;
+            }
+
+            .sunrise-time-information {
+                margin-left: 20px;
+            }
+
+        }
+        .sunset-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            margin: 3vh 0px;
+            color: white;
+            font-family: 'lucida console';
+
+            .moon-image {
+                width: 120px;
+                height: auto;
+            }
+
+            .sunset-time-information {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+        
+    .app {
+        .input-container {
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+
+            .date-input {
+                width: 100%;
+                margin: 10px 0px;
+                align-self: center;
+
+            }
+            .search-country-bar {
+                width: 100%;
+                margin: 10px 0px;
+                align-self: center;
+            }
+        }
+    
+        .show-button {
+            margin-top: 30px;
+            width: 92%;
+        }
+    
+        .sunrise-sunset-container {
+            width: 90%;
+    
+            .sunrise-container {
+                font-size: 25px;
+
+                .sun-image {
+                    width: 80px;
+                }
+    
+            }
+            .sunset-container {
+                font-size: 25px;
+
+                .moon-image {
+                    width: 80px;
+                }
+
+            }   
+        }
+    }
+}
+
+@media (max-width: 413px) {
+    .app {
+        .sunrise-sunset-container {
+            .sunrise-container {
+                font-size: 19px;
+
+                .sun-image {
+                    width: 60px;
+                }
+    
+            }
+            .sunset-container {
+                font-size: 19px;
+
+                .moon-image {
+                    width: 60px;
+                }
+
+            }   
+        }
+    }
+}
