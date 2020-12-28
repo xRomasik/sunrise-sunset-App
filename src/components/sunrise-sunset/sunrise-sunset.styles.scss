@@ -10,6 +10,7 @@
     border-top: 2px solid white;
 
     .sunrise-container {
+        width: 490px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -30,6 +31,7 @@
     }
 
     .sunset-container {
+        width: 490px;
         display: flex;
         flex-direction: row;
         justify-content: center;
@@ -56,7 +58,6 @@
 
         .sunrise-container {
             font-size: 25px;
-            width: 100%;
 
             .sun-image {
                 width: 80px;

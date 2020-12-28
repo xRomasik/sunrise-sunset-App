@@ -25,6 +25,8 @@ const HomePage = () => {
     }, [coordinates])
 
 
+
+
     const setDateToSearch = (event) => {
         setDate(event.target.value)
     }
@@ -34,22 +36,37 @@ const HomePage = () => {
     }
 
     const timeConvertTo24hLocalTimeZoneFormat = (fetchedTime, timeOffset) => {
-        const [time, modifier] = fetchedTime.split(' ')
-        let [hours, minutes] = time.split(':', 2)
-        console.log(time, modifier, hours, minutes)
+        const [time, modifier] = fetchedTime.split(' ');
+        const timeOffsetMinutes = timeOffset % 60;
+        const timeOffsetHours = (timeOffset - timeOffsetMinutes) / 60;
+        let [hours, minutes] = time.split(':', 2);
+        console.log(time, modifier, hours, minutes);
+
+
         if (hours === '12') {
             hours = '00';
-        }
+        };
 
         if (modifier === 'PM') {
             hours = parseInt(hours, 10) + 12;
+        };
+
+        hours = parseInt(hours) + timeOffsetHours;
+        minutes = parseInt(minutes) + timeOffsetMinutes;
+
+        if (minutes >= 60) {
+            minutes = minutes - 60;
+            hours = hours + 1
+        };
+
+        if (minutes < 10) {
+            minutes = '0' + minutes.toString();
         }
 
-        hours = parseInt(hours) + timeOffset
-        console.log(hours)
-        if (hours > 24) {
+        console.log(hours, minutes)
+        if (hours >= 24) {
             hours = hours - 24
-        }
+        };
 
         return `${hours}:${minutes}`;
     }
@@ -64,7 +81,7 @@ const HomePage = () => {
                     setCoordinates({
                         latitude: data.results[0].geometry.lat,
                         longitude: data.results[0].geometry.lng,
-                        timeOffset: parseInt(data.results[0].annotations.timezone.offset_sec) / 3600
+                        timeOffset: parseInt(data.results[0].annotations.timezone.offset_sec) / 60
                     });
                 }).catch(() => setErrorMessage('Something went wrong, please check the name of the country and try again.'))
         } else if (!country.match(/^[^0-9]*$/)) {
