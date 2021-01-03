@@ -16,3 +16,11 @@ Clone the repository using `git clone`command and the repository link. \
 Then use `npm start` to start this app. \
 Window in your browser should pop up, if not, open http://localhost:3000 in your browser. \
 Choose date and country and find out their sunset&sunrise times!
+
+## BACKEND API
+
+Because this app uses 2 APIs, that both need API key, I also created simple sever, that can handle all the API calls mentioned above, so nobody not authorized can acces these keys and use them.\
+
+To make the app compatible with the server it is nessesary to open project folder src/pages/homepage and 
+
+
