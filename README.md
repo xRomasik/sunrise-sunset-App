@@ -10,7 +10,7 @@ After all this information is fetched, the app then converts 12h format to 24h a
 
 ## QUICK START
 
-Clone the repository using `git clone`command and the repository link. \
+Clone the repository using `git clone` command and the repository link. \
 `cd` into cloned repository. \
 `npm install` all the dependencies. \
 Then use `npm start` to start this app. \
@@ -19,9 +19,9 @@ Choose date and country and find out their sunset&sunrise times!
 
 ## BACKEND API
 
-Because this app uses 2 APIs, that both need API key, I also created simple sever, that can handle all the API calls mentioned above, so nobody not authorized can acces these keys and use them.\
+Because this app uses 2 APIs, that both need API key, I also created simple sever, that can handle all the API calls mentioned above, so nobody not authorized can't access these keys and use them.\
 
-To make the app compatible with the server it is nessesary to open project folder src/pages/homepage/homepage.functions and switch these 2 functions by commeting the 1st one, and uncomenting the 2nd one. \
+To make the app compatible with the server it is necessary to open project folder src/pages/homepage/homepage.functions and switch these 2 functions by commenting the 1st one and uncommenting the 2nd one. \
 
 ![image](https://user-images.githubusercontent.com/73423557/103469306-59e1bf80-4d63-11eb-9044-c95869d3c432.png)
 
@@ -30,6 +30,3 @@ Also do not forget to remove API_KEY and API_KEY2 arguments from the function ca
 ![image](https://user-images.githubusercontent.com/73423557/103469358-ed1af500-4d63-11eb-8b66-6337ed51292a.png)
 
 How start up the server is described in the server repository: https://github.com/xRomasik/sunrise-sunset-app-backend
-
-
-
