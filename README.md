@@ -25,8 +25,8 @@ To make the app compatible with the server it is necessary to open project folde
 
 ![image](https://user-images.githubusercontent.com/73423557/103469306-59e1bf80-4d63-11eb-9044-c95869d3c432.png)
 
-Also do not forget to remove API_KEY and API_KEY2 arguments from the function call in the homepage.component
+Also, do not forget to remove API_KEY and API_KEY2 arguments from the function call in the homepage.component
 
 ![image](https://user-images.githubusercontent.com/73423557/103469358-ed1af500-4d63-11eb-8b66-6337ed51292a.png)
 
-How start up the server is described in the server repository: https://github.com/xRomasik/sunrise-sunset-app-backend
+How to start up the server is described in the server repository: https://github.com/xRomasik/sunrise-sunset-app-backend
