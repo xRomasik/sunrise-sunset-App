@@ -75,3 +75,42 @@ export const getSunriseSunsetTimes = (country, date, API_KEY, API_KEY2, setSunse
         setErrorMessage('Country name must be at least 3 letters long.')
     }
 }
+
+
+// export const getSunriseSunsetTimes = (countrySearchfield, dateSearchfield, setSunsetSunriseTime, setErrorMessage) => {
+
+
+//     if (countrySearchfield.length > 2 && countrySearchfield.match(/^[^0-9]*$/)) {
+//         const requestOptions = {
+//             method: 'POST',
+//             headers: { 'Content-Type': 'application/json' },
+//             body: JSON.stringify({
+//                 country: countrySearchfield,
+//                 date: dateSearchfield,
+//             })
+//         }
+
+//         fetch('http://127.0.0.1:5000/server/api/sunrise-sunset-times', requestOptions)
+//             .then(response => {
+//                 if (response.status !== 200) {
+//                     throw new Error('Bad response')
+//                 }
+//                 return response.json()
+//             })
+//             .then(data => {
+//                 setSunsetSunriseTime({
+//                     sunriseTime: data.sunriseTime,
+//                     sunsetTime: data.sunsetTime
+//                 })
+//                 setErrorMessage(null)
+//             }
+
+//             ).catch(() => setErrorMessage('Something went wrong, please check the name of the country and try again.'))
+
+//     } else if (!countrySearchfield.match(/^[^0-9]*$/)) {
+//         setErrorMessage('It seems like there is a number in your country name.')
+//     } else {
+//         setErrorMessage('Country name must be at least 3 letters long.')
+//     }
+
+// };
