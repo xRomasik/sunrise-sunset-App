@@ -3,23 +3,23 @@ import sun from '../../assets/sun.png'
 import './country-input.styles.scss'
 
 
-const CountryInput = ({ setDateToSearch, setCountryToSearch, fetchCoordinatesForCountry }) => {
+const CountryInput = ({ handleDateInput, handleCountryInput, getSunriseSunsetTimes }) => {
 
     return (
         <div className='country-input'>
             <div className='input-container'>
-                <input className='date-input' type='date' max='9999-12-24' onChange={setDateToSearch} />
+                <input className='date-input' type='date' max='9999-12-24' onChange={handleDateInput} />
                 <input className='search-country-bar' type='text' placeholder='Enter country'
-                    onChange={setCountryToSearch}
+                    onChange={handleCountryInput}
                     onKeyPress={event => {
                         if (event.key === 'Enter') {
-                            fetchCoordinatesForCountry()
+                            getSunriseSunsetTimes()
                         }
                     }}
                 />
             </div>
-            <button className='show-button' onClick={fetchCoordinatesForCountry}>
-                <img className='show-button-image' alt='sun' src={sun} width="50" height="auto" />
+            <button className='show-button' onClick={getSunriseSunsetTimes}>
+                <img className='show-button-image' alt='sun' src={sun} />
                 <span className='show-button-text'>SHOW</span>
             </button>
         </div>
